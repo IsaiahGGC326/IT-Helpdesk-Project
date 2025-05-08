@@ -1,0 +1,35 @@
+<!-- client/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Help Desk Ticketing System</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <h1>Submit a Ticket</h1>
+  <div style="text-align: center; margin-bottom: 20px;">
+    <label for="darkModeToggle">🌗 Dark Mode</label>
+    <input type="checkbox" id="darkModeToggle">
+  </div>  
+  <form id="ticketForm">
+    <input type="text" id="title" placeholder="Title" required><br>
+    <textarea id="description" placeholder="Describe your issue..." required></textarea><br>
+    <select id="priority">
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select><br>
+    <button type="submit">Submit Ticket</button>
+    <p id="message" style="text-align:center; color: green; display: none;"></p>
+  </form>
+
+  <h2>All Tickets</h2>
+  <ul id="ticketList"></ul>
+
+  <script src="script.js"></script>
+  <div id="toast" class="toast"></div> 
+
+</body>
+</html>

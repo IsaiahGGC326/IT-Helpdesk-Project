@@ -1,0 +1,15 @@
+# Node modules
+node_modules/
+
+# Environment files (do not expose secrets like DB URIs)
+.env
+
+# OS/system files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE settings (optional)
+.vscode/
