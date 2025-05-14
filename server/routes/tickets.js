@@ -23,19 +23,22 @@ router.get('/', auth, async (req, res) => {
 });
 
 // Post /tickets - create new ticket
-router.post('/', async (req, res) => {
-    try {
-        const ticketData = {
-           ...req.body,
-           createdBy: req.user._id,
-        };
+router.post('/', auth, async (req, res) => {
+  try {
+    console.log('REQ.USER:', req.user); // 👈 log user
 
-        const newTicket = new Ticket(ticketData);
-        const savedTicket = await newTicket.save();
-        res.status(201).json(savedTicket);
-      } catch (err) {
-        res.status(400).json({ error: err.message });
-    }
+    const ticketData = {
+      ...req.body,
+      createdBy: req.user._id,
+    };
+
+    const newTicket = new Ticket(ticketData);
+    const savedTicket = await newTicket.save();
+    res.status(201).json(savedTicket);
+  } catch (err) {
+    console.error('Ticket creation error:', err);
+    res.status(400).json({ error: err.message });
+  }
 });
 
 module.exports = router;
