@@ -26,5 +26,5 @@ mongoose.connect(process.env.MONGO_URI)
 const ticketRoutes = require('./routes/tickets');
 app.use('/api/tickets', ticketRoutes);
 
-const authRoutes = require('./routes/auth');
+const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
